@@ -2,7 +2,8 @@
 
 An interactive web dashboard that visualizes how rising global temperatures affect crop yields and livestock productivity across world regions.
 
-![Dashboard Preview](https://img.shields.io/badge/Live-GitHub%20Pages-brightgreen)
+[![Live Demo](https://img.shields.io/badge/Live-GitHub%20Pages-brightgreen)](https://joelfirenze.github.io/climate-food-impact/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?logo=buymeacoffee&logoColor=white)](https://buymeacoffee.com/joelfirenze)
 
 ## Features
 
@@ -63,6 +64,12 @@ Or serve it locally:
 python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
+
+## Support
+
+If you find this project useful, consider buying me a coffee!
+
+[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=joelfirenze&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/joelfirenze)
 
 ## License
 
