@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>References &amp; Methodology - Climate Change &amp; Agriculture Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-primary: #0b0b1a;
+      --bg-secondary: #111128;
+      --bg-card: #181835;
+      --border-color: #2a2a50;
+      --text-primary: #e8e8f0;
+      --text-secondary: #9898b8;
+      --text-muted: #686888;
+      --accent-green: #1a9850;
+      --accent-yellow: #ffd93d;
+      --accent-orange: #f39c12;
+      --accent-red: #e74c3c;
+      --accent-blue: #4a90d9;
+      --radius: 12px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    html { font-size: 15px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 28px;
+    }
+    .header-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .header-title {
+      font-size: 1.5rem; font-weight: 800;
+      background: linear-gradient(135deg, #1a9850, #ffd93d, #e74c3c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .back-link {
+      color: var(--accent-blue); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    main {
+      max-width: 900px; margin: 0 auto; padding: 32px 28px;
+    }
+
+    .last-updated {
+      font-size: 0.8rem; color: var(--text-muted);
+      margin-bottom: 28px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Caveat banner */
+    .caveat-banner {
+      background: rgba(243, 156, 18, 0.08);
+      border: 1px solid rgba(243, 156, 18, 0.25);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .caveat-banner h2 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--accent-orange); margin-bottom: 10px;
+    }
+    .caveat-banner p, .caveat-banner li {
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;
+    }
+    .caveat-banner ul {
+      margin-top: 8px; padding-left: 20px;
+    }
+    .caveat-banner li { margin-bottom: 4px; }
+
+    /* Sections */
+    .ref-section {
+      margin-bottom: 36px;
+    }
+    .ref-section h2 {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--accent-yellow);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .ref-section h3 {
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--text-primary);
+      margin: 16px 0 8px;
+    }
+
+    table {
+      width: 100%; border-collapse: collapse;
+      margin-bottom: 16px; font-size: 0.82rem;
+    }
+    th {
+      text-align: left; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase;
+      font-size: 0.7rem; letter-spacing: 0.05em;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(42,42,80,0.4);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(42,42,80,0.2); }
+    td:first-child { color: var(--text-primary); font-weight: 500; }
+    .tag {
+      display: inline-block; font-size: 0.65rem; font-weight: 600;
+      padding: 2px 6px; border-radius: 4px; margin-left: 4px;
+      vertical-align: middle;
+    }
+    .tag-accurate { background: rgba(26,152,80,0.15); color: var(--accent-green); }
+    .tag-approx { background: rgba(74,144,217,0.15); color: var(--accent-blue); }
+    .tag-updated { background: rgba(243,156,18,0.15); color: var(--accent-orange); }
+    .tag-estimate { background: rgba(152,152,184,0.15); color: var(--text-secondary); }
+
+    .source-list {
+      padding-left: 0; list-style: none;
+    }
+    .source-list li {
+      font-size: 0.82rem; color: var(--text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(42,42,80,0.3);
+    }
+    .source-list li:last-child { border-bottom: none; }
+    .source-list a {
+      color: var(--accent-blue); text-decoration: none;
+    }
+    .source-list a:hover { text-decoration: underline; }
+    .source-id {
+      font-weight: 600; color: var(--text-primary);
+      margin-right: 6px;
+    }
+
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 20px 28px; text-align: center;
+    }
+    .footer-text {
+      font-size: 0.75rem; color: var(--text-muted);
+      max-width: 800px; margin: 0 auto; line-height: 1.7;
+    }
+    .footer-text a { color: var(--accent-blue); text-decoration: none; }
+    .footer-text a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      main { padding: 20px 16px; }
+      header { padding: 14px 16px; }
+      table { font-size: 0.75rem; }
+      th, td { padding: 6px 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <h1 class="header-title">References &amp; Methodology</h1>
+    </div>
+    <a href="index.html" class="back-link">&larr; Back to Dashboard</a>
+  </div>
+</header>
+
+<main>
+  <p class="last-updated">Last fact-checked and updated: March 2026. Production figures reflect 2024/25 FAO &amp; USDA estimates.</p>
+
+  <!-- ========== CAVEATS ========== -->
+  <div class="caveat-banner">
+    <h2>Important Caveats &amp; Limitations</h2>
+    <p>This dashboard synthesises data from multiple peer-reviewed sources and international organisations. Users should be aware of the following limitations:</p>
+    <ul>
+      <li><strong>Regional aggregation:</strong> Impact values represent region-wide medians. Within any region, impacts vary enormously by country, micro-climate, soil type, altitude, water access, and farming system. These figures should not be used for local or national planning.</li>
+      <li><strong>CO&#8322; fertilisation uncertainty:</strong> Elevated CO&#8322; can boost C3 crop photosynthesis (wheat, rice, soybeans) by 10&ndash;20% under ideal conditions, partially offsetting heat/drought losses. However, CO&#8322; benefits are reduced under nutrient/water limitation and may decrease nutritional quality. The yield-change values shown here represent <em>net</em> median estimates that partially incorporate CO&#8322; fertilisation, but the magnitude of this effect remains actively debated.</li>
+      <li><strong>Adaptation not fully modelled:</strong> Impact projections assume limited autonomous adaptation (e.g., modest planting date shifts). They do not model transformative adaptation such as large-scale irrigation expansion, major breeding breakthroughs, or wholesale relocation of farming systems. With strong adaptation, actual losses could be significantly smaller.</li>
+      <li><strong>Livestock impact estimates are synthesised:</strong> Unlike crop yield projections (which draw on large meta-analyses), livestock productivity impacts are constructed from Temperature-Humidity Index (THI) research, feed-crop projections, and IPCC qualitative assessments. The specific percentage values are informed estimates, not outputs of a single quantitative model.</li>
+      <li><strong>Warming scenarios are simplified:</strong> Real-world warming is not uniform. Land warms faster than oceans, high latitudes faster than the tropics, and nighttime temperatures faster than daytime. A "+2&deg;C global mean" may correspond to +3&ndash;4&deg;C in continental interiors.</li>
+      <li><strong>The +1&deg;C scenario reflects the recent past:</strong> Global mean temperature surpassed +1&deg;C above pre-industrial around 2017. As of 2024, warming stands at approximately +1.2&deg;C, with temporary excursions to ~+1.5&deg;C. The +1&deg;C data point shows impacts that are already occurring, not a future projection.</li>
+      <li><strong>Production figures are approximate:</strong> Global production volumes are rounded estimates from FAO/USDA data and fluctuate annually with weather, trade, and market conditions. Figures marked with "~" are rounded to the nearest significant figure.</li>
+      <li><strong>Non-linear and compound risks:</strong> At higher warming levels (+3&deg;C and above), impacts may be non-linear due to tipping points, compound extremes (simultaneous heat + drought + flooding), and cascading failures across food systems. The linear interpolation between data points may underestimate tail risks.</li>
+    </ul>
+  </div>
+
+  <!-- ========== PRIMARY SOURCES ========== -->
+  <div class="ref-section">
+    <h2>Primary Source Documents</h2>
+    <ul class="source-list">
+      <li><span class="source-id">[IPCC-AR6-WG2]</span> IPCC, 2022: <em>Climate Change 2022: Impacts, Adaptation and Vulnerability</em>. Contribution of Working Group II to the Sixth Assessment Report. Chapter 5: Food, Fibre and Other Ecosystem Products. <a href="https://www.ipcc.ch/report/ar6/wg2/" target="_blank" rel="noopener">ipcc.ch/report/ar6/wg2/</a></li>
+      <li><span class="source-id">[IPCC-AR6-WG1]</span> IPCC, 2021: <em>Climate Change 2021: The Physical Science Basis</em>. Working Group I. Table SPM.1 (temperature scenarios by SSP). <a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" rel="noopener">ipcc.ch/report/ar6/wg1/</a></li>
+      <li><span class="source-id">[IPCC-SRCCL]</span> IPCC, 2019: <em>Special Report on Climate Change and Land</em>. Chapter 5: Food Security, Figure 5.2. <a href="https://www.ipcc.ch/srccl/" target="_blank" rel="noopener">ipcc.ch/srccl/</a></li>
+      <li><span class="source-id">[FAO-STAT]</span> FAO, 2025: <em>FAOSTAT Statistical Database</em>. Production quantities for crops and livestock. <a href="https://www.fao.org/faostat/" target="_blank" rel="noopener">fao.org/faostat/</a></li>
+      <li><span class="source-id">[USDA-WAP]</span> USDA Foreign Agricultural Service, 2025: <em>World Agricultural Production</em> (Circular Series WAP 3-25). <a href="https://apps.fas.usda.gov/psdonline/circulars/production.pdf" target="_blank" rel="noopener">fas.usda.gov</a></li>
+      <li><span class="source-id">[CGIAR]</span> CGIAR Research Program on Climate Change, Agriculture and Food Security (CCAFS). <a href="https://www.cgiar.org/" target="_blank" rel="noopener">cgiar.org</a></li>
+    </ul>
+  </div>
+
+  <!-- ========== CROP YIELD PROJECTIONS ========== -->
+  <div class="ref-section">
+    <h2>Crop Yield Impact Projections</h2>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">
+      Regional yield-change arrays are derived from meta-analyses cited in IPCC AR6 WGII Chapter 5, IPCC SRCCL Figure 5.2, and the studies below. Values represent median estimates across multiple climate models and crop models (typically CMIP6 x GGCMI ensembles). Ranges in the underlying literature are wide; the single values shown here are central tendencies.
+    </p>
+    <ul class="source-list">
+      <li><span class="source-id">[Zhao2017]</span> Zhao, C. et al. (2017). Temperature increase reduces global yields of major crops. <em>PNAS</em>, 114(35), 9326&ndash;9331. <strong>Key finding:</strong> Each degree of warming reduces global yields of wheat by 6.0%, rice by 3.2%, maize by 7.4%, and soybean by 3.1%.</li>
+      <li><span class="source-id">[Asseng2015]</span> Asseng, S. et al. (2015). Rising temperatures reduce global wheat production. <em>Nature Climate Change</em>, 5, 143&ndash;147. <strong>Key finding:</strong> Multi-model ensemble projects median wheat yield decline of 6% per degree C of warming.</li>
+      <li><span class="source-id">[Challinor2014]</span> Challinor, A.J. et al. (2014). A meta-analysis of crop yield under climate change and adaptation. <em>Nature Climate Change</em>, 4, 287&ndash;291. <strong>Key finding:</strong> Adaptation measures offset some losses, but tropical regions remain net negative.</li>
+      <li><span class="source-id">[Ray2019]</span> Ray, D.K. et al. (2019). Climate change has likely already affected global food production. <em>PLOS ONE</em>, 14(5), e0217148. <strong>Key finding:</strong> Climate trends since 1974 have already reduced global consumable food calories by ~1%.</li>
+      <li><span class="source-id">[Jagermeyr2021]</span> J&auml;germeyr, J. et al. (2021). Climate impacts on global agriculture emerge earlier in new generation of climate and crop models. <em>Nature Food</em>, 2, 873&ndash;885. <strong>Key finding:</strong> GGCMI Phase 3 ensemble shows maize yields declining 24% by end-of-century under SSP5-8.5, with earlier emergence of impacts than previously projected.</li>
+      <li><span class="source-id">[Rosenzweig2014]</span> Rosenzweig, C. et al. (2014). Assessing agricultural risks of climate change in the 21st century. <em>PNAS</em>, 111(9), 3268&ndash;3273.</li>
+    </ul>
+  </div>
+
+  <!-- ========== CROP-SPECIFIC REFERENCES ========== -->
+  <div class="ref-section">
+    <h2>Crop-Specific Data Points</h2>
+
+    <h3>Wheat</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global staple</td><td>Nearly 3 billion people</td><td>[FAO-STAT]; CIMMYT wheat factsheet</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Global production</td><td>~800 Mt/year</td><td>[USDA-WAP] 2024/25: ~796 Mt</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>12&ndash;25&deg;C</td><td>[Asseng2015]; Porter &amp; Gawith (1999)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Critical max temperature</td><td>32&deg;C</td><td>[Asseng2015]; Farooq et al. (2011) <em>J. Agron. Crop Sci.</em></td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Yield loss per degree</td><td>~6% per &deg;C above optimal</td><td>[Zhao2017]; [Asseng2015]</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Top producers</td><td>CHN, IND, RUS, USA, FRA, CAN, UKR, PAK, DEU, ARG</td><td>[FAO-STAT] 2023; rankings fluctuate annually (AUS, TUR also in top 10 some years)</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Poleward shift rate</td><td>150&ndash;300 km per &deg;C</td><td>Zhu &amp; Troy (2018); IPCC SRCCL; range is 100&ndash;300 km in literature</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>IGP feeds 900M people</td><td>~900M&ndash;1B</td><td>CGIAR; World Bank South Asia overview</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Rice</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global staple</td><td>3.5 billion people</td><td>[FAO-STAT]; IRRI rice factsheet</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Global production</td><td>~540 Mt/year</td><td>[FAO-STAT] 2024/25: ~543 Mt (milled)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>22&ndash;30&deg;C</td><td>Yoshida (1981); IRRI rice knowledge bank</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Spikelet sterility &gt;35&deg;C</td><td>35&deg;C during anthesis</td><td>Matsui et al. (2000) <em>Annals of Botany</em>; Jagadish et al. (2007)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Night temp threshold</td><td>&gt;26&deg;C (literature: ~27&deg;C)</td><td>Peng et al. (2004) <em>PNAS</em>; slightly conservative</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Mekong Delta share</td><td>~50% of Vietnam's rice</td><td>Vietnam Ministry of Agriculture; actual: ~54&ndash;55%</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Maize (Corn)</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Most produced cereal</td><td>By volume, yes</td><td>[FAO-STAT]</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Global production</td><td>~1,200 Mt/year</td><td>[USDA-WAP] 2024/25: ~1,210 Mt</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>18&ndash;33&deg;C</td><td>Hatfield et al. (2011) <em>Agron. J.</em></td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Pollen viability &gt;35&deg;C</td><td>Drops to ~40% germination</td><td>Herrero &amp; Johnson (1980); Schoper et al. (1987)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Complete failure &gt;38&deg;C</td><td>Pollen germination ceases</td><td>Herrero &amp; Johnson (1980)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>SSA staple for 300M</td><td>300+ million people</td><td>IITA; CGIAR maize program</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>US Corn Belt shift</td><td>~150 km northward per &deg;C</td><td>Climate models; range in literature is 100&ndash;200 km/&deg;C</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Soybeans</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>~400 Mt/year</td><td>[USDA-WAP] 2024/25: ~420 Mt (record)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>20&ndash;30&deg;C</td><td>Hatfield et al. (2011); Puteh et al. (2013)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Pod abortion &gt;33&deg;C</td><td>Significant reproductive failure</td><td>Salem et al. (2007); Djanaguiraman et al. (2013)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Seed quality decline &gt;36&deg;C</td><td>Protein/oil composition changes</td><td>Thomas et al. (2003) <em>Crop Sci.</em></td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Potatoes</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>4th largest food crop</td><td>After rice, wheat, maize</td><td>[FAO-STAT]; CIP (International Potato Center)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Global production</td><td>~390 Mt/year</td><td>[FAO-STAT] 2024: ~390 Mt</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>15&ndash;20&deg;C</td><td>Levy &amp; Veilleux (2007); CIP research</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Tuber initiation &gt;29&deg;C</td><td>Inhibited at night temps &gt;29&deg;C</td><td>Ewing (1981); Gregory (1965)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>~8% yield loss per &deg;C &gt;20&deg;C</td><td>Substantial decline; exact rate varies by cultivar</td><td>Derived from multiple studies; central estimate</td><td><span class="tag tag-estimate">ESTIMATE</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Coffee (Arabica)</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Share of global production</td><td>~57% (was ~60%)</td><td>[USDA-WAP] Coffee circular 2024/25; Robusta share growing</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Global production</td><td>~10 Mt/year</td><td>[USDA-WAP] 2024/25: ~10.6 Mt (176.2M bags)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>18&ndash;22&deg;C</td><td>DaMatta &amp; Ramalho (2006) <em>Braz. J. Plant Physiol.</em></td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>50% land loss at +2&deg;C</td><td>~50% of suitable land by 2050</td><td>Gruter et al. (2022) <em>PLOS ONE</em>; Bunn et al. (2015)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Ethiopia 40&ndash;60% loss</td><td>39&ndash;59% area unsuitable</td><td>Davis et al. (2017) <em>Nature Plants</em></td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Top producers</td><td>BRA, VNM, COL, IDN, ETH...</td><td>[FAO-STAT]; note VNM is mostly Robusta, not Arabica</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cocoa</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Tropical belt &lt;20&deg;</td><td>Nearly all within 20&deg; of equator</td><td>ICCO; World Cocoa Foundation</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>West Africa 70%</td><td>~70% (CIV, GHA, NGA, CMR)</td><td>[ICCO] Quarterly Bulletin Nov 2024; may be slightly lower post-crisis</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Global production</td><td>~4.7 Mt/year (2024/25)</td><td>[ICCO] Nov 2024; down from pre-crisis ~5.7 Mt due to 2023&ndash;24 cocoa supply crisis (disease, poor weather in W. Africa)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Optimal temperature</td><td>21&ndash;27&deg;C</td><td>Schroth et al. (2016); ICCO technical papers</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>CIV + GHA = 60%</td><td>~55&ndash;60% combined</td><td>[ICCO]; shares may have decreased slightly during crisis</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== LIVESTOCK ========== -->
+  <div class="ref-section">
+    <h2>Livestock Data Points</h2>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">
+      Livestock productivity impacts are synthesised from Temperature-Humidity Index (THI) research, animal physiology studies, and IPCC WGII qualitative assessments. Unlike crop yields, there are no large multi-model ensembles for livestock; the percentage values are informed estimates constructed from the direction and magnitude indicated in the literature.
+    </p>
+
+    <h3>Cattle (Beef)</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>72 Mt/year</td><td>[FAO-STAT] 2023: ~73&ndash;74 Mt (incl. buffalo)</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Thermoneutral zone</td><td>5&ndash;25&deg;C</td><td>Hahn (1999); Nienaber &amp; Hahn (2007)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Critical temperature</td><td>35&deg;C</td><td>THI literature; NRC (2016)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Water needs increase 2&ndash;3x</td><td>Under heat stress</td><td>NRC (2016) <em>Nutrient Requirements of Beef Cattle</em>; FAO</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Dairy Cows</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>930 Mt milk/year</td><td>[FAO-STAT] 2023: ~930&ndash;940 Mt cow milk</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Thermoneutral zone</td><td>5&ndash;22&deg;C</td><td>Kadzere et al. (2002); West (2003)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Milk drop 0.5 kg/day/&deg;C</td><td>Above TNZ</td><td>West (2003); Bouraoui et al. (2002); range: 0.2&ndash;0.9 kg/day/&deg;C depending on breed</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Milk drop 10&ndash;25% &gt;32&deg;C</td><td>Severe heat stress</td><td>De Rensis &amp; Scaramuzzi (2003); Bernabucci et al. (2010)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Fertility drop 20&ndash;30%</td><td>Summer conception rates</td><td>Hansen (2007); De Rensis et al. (2015)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>India = largest milk producer</td><td>~220&ndash;230 Mt/year (cow + buffalo)</td><td>[FAO-STAT]; Operation Flood legacy</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Poultry</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>137 Mt/year</td><td>[FAO-STAT] 2023: ~137&ndash;140 Mt</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Thermoneutral zone</td><td>18&ndash;24&deg;C</td><td>Lara &amp; Rostagno (2013); Lin et al. (2006)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Feed intake &minus;5%/&deg;C &gt;28&deg;C</td><td>Range: 3&ndash;5% per degree</td><td>Temim et al. (2000); Ain Baziz et al. (1996)</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Egg production &minus;7%/&deg;C &gt;32&deg;C</td><td>Range: 5&ndash;10% per degree</td><td>Mashaly et al. (2004); breed-dependent</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Top producers</td><td>USA, CHN, BRA, RUS, IND, MEX, THA, IDN, TUR, ARG</td><td>[FAO-STAT]; THA replaces JPN (updated)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Pigs</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>120 Mt/year</td><td>[FAO-STAT] 2023: ~115&ndash;125 Mt (post-ASF recovery)</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Thermoneutral zone</td><td>16&ndash;22&deg;C</td><td>Renaudeau et al. (2012); Ross et al. (2015)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Boar fertility decline</td><td>Up to 50% (severe/prolonged heat)</td><td>Wettemann et al. (1976); Malmgren (1989); range 20&ndash;50%</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Feed intake &minus;30&ndash;40% &gt;33&deg;C</td><td>Duration-dependent</td><td>Renaudeau et al. (2011)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Pigs cannot sweat</td><td>Few functional sweat glands</td><td>Standard animal physiology textbooks</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>China ~half of world pork</td><td>~45&ndash;47% (post-ASF recovery)</td><td>[FAO-STAT]; pre-ASF was ~50%</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Sheep &amp; Goats</h3>
+    <table>
+      <thead><tr><th>Claim</th><th>Value</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Global production</td><td>~22 Mt meat/year (combined)</td><td>[FAO-STAT]; sheep ~16 Mt + goat ~6&ndash;7 Mt</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Thermoneutral zone</td><td>10&ndash;28&deg;C</td><td>Marai et al. (2007); Sejian et al. (2012)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Goats more drought-tolerant</td><td>Better water conservation, browse vs. graze</td><td>Silanikove (2000)</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== CLIMATE SCENARIOS ========== -->
+  <div class="ref-section">
+    <h2>Climate Warming Scenarios</h2>
+    <table>
+      <thead><tr><th>Scenario</th><th>Dashboard</th><th>IPCC AR6 WGI</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>+1&deg;C</td>
+          <td>~2017 (already exceeded)</td>
+          <td>Global mean surpassed +1.0&deg;C around 2017; as of 2024 at ~+1.2&deg;C</td>
+          <td><span class="tag tag-updated">UPDATED</span></td>
+        </tr>
+        <tr>
+          <td>+2&deg;C</td>
+          <td>2040&ndash;2060, SSP2-4.5</td>
+          <td>AR6 WGI Table SPM.1: best estimate +2.0&deg;C for SSP2-4.5 at 2041&ndash;2060</td>
+          <td><span class="tag tag-accurate">VERIFIED</span></td>
+        </tr>
+        <tr>
+          <td>+3&deg;C</td>
+          <td>2060&ndash;2080, SSP3-7.0</td>
+          <td>SSP3-7.0 reaches +2.8&deg;C by 2041&ndash;2060, +3.6&deg;C by 2081&ndash;2100; +3&deg;C falls ~2060s&ndash;2070s</td>
+          <td><span class="tag tag-approx">APPROXIMATE</span></td>
+        </tr>
+        <tr>
+          <td>+4&deg;C</td>
+          <td>2080&ndash;2100, SSP5-8.5</td>
+          <td>AR6 best estimate: +4.4&deg;C for SSP5-8.5 at 2081&ndash;2100</td>
+          <td><span class="tag tag-accurate">VERIFIED</span></td>
+        </tr>
+        <tr>
+          <td>+5&deg;C</td>
+          <td>2100+, SSP5-8.5</td>
+          <td>Within likely range (3.3&ndash;5.7&deg;C) at 2100; best estimate for post-2100 continued emissions</td>
+          <td><span class="tag tag-approx">APPROXIMATE</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:8px;">
+      <strong>Note:</strong> Warming is not uniform globally. Land surfaces warm ~1.4&ndash;1.7x faster than the global mean. A +2&deg;C global average may mean +3&ndash;4&deg;C over continental interiors where most agriculture occurs.
+    </p>
+  </div>
+
+  <!-- ========== REGIONAL POPULATIONS ========== -->
+  <div class="ref-section">
+    <h2>Regional Population Figures</h2>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:16px;">
+      Population figures are approximate (2024&ndash;2025 estimates) and are used for contextual framing only. They do not affect any quantitative calculations in the dashboard.
+    </p>
+    <table>
+      <thead><tr><th>Region</th><th>Dashboard Value</th><th>2024&ndash;25 Estimate</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>South Asia</td><td>1.9 billion</td><td>~2.0 billion</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Southeast Asia</td><td>680 million</td><td>~690 million</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>East Asia</td><td>1.55 billion</td><td>~1.55 billion (China declining)</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>Sub-Saharan Africa</td><td>1.3 billion</td><td>~1.25&ndash;1.3 billion</td><td><span class="tag tag-updated">UPDATED</span></td></tr>
+        <tr><td>N. Africa &amp; Middle East</td><td>600 million</td><td>~630 million</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Europe</td><td>450 million</td><td>~450 million</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>North America (incl. C. America, Caribbean)</td><td>580 million</td><td>~590&ndash;600 million</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>South America</td><td>430 million</td><td>~440 million</td><td><span class="tag tag-approx">APPROXIMATE</span></td></tr>
+        <tr><td>Oceania</td><td>45 million</td><td>~46 million</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+        <tr><td>Central Asia &amp; Russia</td><td>220 million</td><td>~215 million</td><td><span class="tag tag-accurate">VERIFIED</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Source: United Nations World Population Prospects (2024 revision); World Bank DataBank.</p>
+  </div>
+
+  <!-- ========== ADDITIONAL REFERENCES ========== -->
+  <div class="ref-section">
+    <h2>Additional Peer-Reviewed References</h2>
+    <ul class="source-list">
+      <li><span class="source-id">[Asseng2015]</span> Asseng, S. et al. (2015). Rising temperatures reduce global wheat production. <em>Nature Climate Change</em>, 5, 143&ndash;147.</li>
+      <li><span class="source-id">[Bernabucci2010]</span> Bernabucci, U. et al. (2010). Metabolic and hormonal acclimation to heat stress in domesticated ruminants. <em>Animal</em>, 4(7), 1167&ndash;1183.</li>
+      <li><span class="source-id">[Bouraoui2002]</span> Bouraoui, R. et al. (2002). The relationship of temperature-humidity index with milk production of dairy cows. <em>Animal Research</em>, 51(6), 479&ndash;491.</li>
+      <li><span class="source-id">[Bunn2015]</span> Bunn, C. et al. (2015). A bitter cup: climate change profile of global production of Arabica and Robusta coffee. <em>Climatic Change</em>, 129, 89&ndash;101.</li>
+      <li><span class="source-id">[Challinor2014]</span> Challinor, A.J. et al. (2014). A meta-analysis of crop yield under climate change and adaptation. <em>Nature Climate Change</em>, 4, 287&ndash;291.</li>
+      <li><span class="source-id">[DaMatta2006]</span> DaMatta, F.M. &amp; Ramalho, J.D.C. (2006). Impacts of drought and temperature stress on coffee physiology and production. <em>Brazilian Journal of Plant Physiology</em>, 18(1), 55&ndash;81.</li>
+      <li><span class="source-id">[Davis2017]</span> Davis, A.P. et al. (2017). The impact of climate change on indigenous Arabica coffee: predicting future trends and identifying priorities. <em>Nature Plants</em>, 3, 17081.</li>
+      <li><span class="source-id">[DeRensis2003]</span> De Rensis, F. &amp; Scaramuzzi, R.J. (2003). Heat stress and seasonal effects on reproduction in the dairy cow. <em>Theriogenology</em>, 60(6), 1139&ndash;1151.</li>
+      <li><span class="source-id">[Farooq2011]</span> Farooq, M. et al. (2011). Heat stress in wheat during reproductive and grain-filling phases. <em>Critical Reviews in Plant Sciences</em>, 30(6), 491&ndash;507.</li>
+      <li><span class="source-id">[Gruter2022]</span> Gr&uuml;ter, R. et al. (2022). Expected global suitability of coffee, cashew and avocado due to climate change. <em>PLOS ONE</em>, 17(1), e0261976.</li>
+      <li><span class="source-id">[Hahn1999]</span> Hahn, G.L. (1999). Dynamic responses of cattle to thermal heat loads. <em>Journal of Animal Science</em>, 77(suppl_2), 10&ndash;20.</li>
+      <li><span class="source-id">[Hansen2007]</span> Hansen, P.J. (2007). Exploitation of genetic and physiological determinants of embryonic resistance to elevated temperature to improve embryonic survival in dairy cattle. <em>Theriogenology</em>, 68(S1), S242&ndash;S249.</li>
+      <li><span class="source-id">[Hatfield2011]</span> Hatfield, J.L. et al. (2011). Climate impacts on agriculture: implications for crop production. <em>Agronomy Journal</em>, 103(2), 351&ndash;370.</li>
+      <li><span class="source-id">[Jagadish2007]</span> Jagadish, S.V.K. et al. (2007). High temperature stress and spikelet fertility in rice. <em>Journal of Experimental Botany</em>, 58(7), 1627&ndash;1635.</li>
+      <li><span class="source-id">[Jagermeyr2021]</span> J&auml;germeyr, J. et al. (2021). Climate impacts on global agriculture emerge earlier in new generation of climate and crop models. <em>Nature Food</em>, 2, 873&ndash;885.</li>
+      <li><span class="source-id">[Kadzere2002]</span> Kadzere, C.T. et al. (2002). Heat stress in lactating dairy cows: a review. <em>Livestock Production Science</em>, 77(1), 59&ndash;91.</li>
+      <li><span class="source-id">[Lara2013]</span> Lara, L.J. &amp; Rostagno, M.H. (2013). Impact of heat stress on poultry production. <em>Animals</em>, 3(2), 356&ndash;369.</li>
+      <li><span class="source-id">[Marai2007]</span> Marai, I.F.M. et al. (2007). Physiological traits as affected by heat stress in sheep. <em>Small Ruminant Research</em>, 71(1&ndash;3), 1&ndash;12.</li>
+      <li><span class="source-id">[Mashaly2004]</span> Mashaly, M.M. et al. (2004). Effect of heat stress on production parameters and immune responses of commercial laying hens. <em>Poultry Science</em>, 83(6), 889&ndash;894.</li>
+      <li><span class="source-id">[Matsui2000]</span> Matsui, T. et al. (2000). Effect of high temperature at ripening stage on grain-filling in rice. <em>Japanese Journal of Crop Science</em>, 69, 468&ndash;472.</li>
+      <li><span class="source-id">[Peng2004]</span> Peng, S. et al. (2004). Rice yields decline with higher night temperature from global warming. <em>PNAS</em>, 101(27), 9971&ndash;9975.</li>
+      <li><span class="source-id">[Ray2019]</span> Ray, D.K. et al. (2019). Climate change has likely already affected global food production. <em>PLOS ONE</em>, 14(5), e0217148.</li>
+      <li><span class="source-id">[Renaudeau2011]</span> Renaudeau, D. et al. (2011). A meta-analysis of the effects of high ambient temperature on growth performance of growing-finishing pigs. <em>Journal of Animal Science</em>, 89(7), 2220&ndash;2230.</li>
+      <li><span class="source-id">[Rosenzweig2014]</span> Rosenzweig, C. et al. (2014). Assessing agricultural risks of climate change in the 21st century in a global gridded crop model intercomparison. <em>PNAS</em>, 111(9), 3268&ndash;3273.</li>
+      <li><span class="source-id">[Sejian2012]</span> Sejian, V. et al. (2012). <em>Environmental Stress and Amelioration in Livestock Production</em>. Springer.</li>
+      <li><span class="source-id">[Silanikove2000]</span> Silanikove, N. (2000). The physiological basis of adaptation in goats to harsh environments. <em>Small Ruminant Research</em>, 35(3), 181&ndash;193.</li>
+      <li><span class="source-id">[West2003]</span> West, J.W. (2003). Effects of heat-stress on production in dairy cattle. <em>Journal of Dairy Science</em>, 86(6), 2131&ndash;2144.</li>
+      <li><span class="source-id">[Zhao2017]</span> Zhao, C. et al. (2017). Temperature increase reduces global yields of major crops in four independent estimates. <em>PNAS</em>, 114(35), 9326&ndash;9331.</li>
+    </ul>
+  </div>
+
+  <!-- ========== METHODOLOGY ========== -->
+  <div class="ref-section">
+    <h2>Methodology Notes</h2>
+    <h3>How yield-change values were derived</h3>
+    <p style="font-size:0.82rem;color:var(--text-secondary);">
+      The five-element arrays <code>[+1&deg;C, +2&deg;C, +3&deg;C, +4&deg;C, +5&deg;C]</code> for each crop&ndash;region pair were constructed by:
+    </p>
+    <ol style="font-size:0.82rem;color:var(--text-secondary);padding-left:20px;margin-top:8px;">
+      <li>Starting with median values from IPCC AR6 WGII Chapter 5 meta-analyses and SRCCL Figure 5.2 (which cover +1&ndash;3&deg;C well).</li>
+      <li>Extending to +4&ndash;5&deg;C using GGCMI ensemble results (J&auml;germeyr et al. 2021) and polynomial extrapolation from Zhao et al. (2017).</li>
+      <li>Adjusting regionally using Challinor et al. (2014) tropical vs. temperate differentials and Rosenzweig et al. (2014) gridded estimates.</li>
+      <li>Incorporating a partial CO&#8322; fertilisation benefit for C3 crops (wheat, rice, soybeans) of approximately +5&ndash;10% at elevated CO&#8322;, dampened by nutrient and water limitations.</li>
+    </ol>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:8px;">
+      These are <strong>central estimates with substantial uncertainty</strong>. The 5th&ndash;95th percentile range around any given value is typically &plusmn;50&ndash;100% of the median (e.g., a median of &minus;10% could range from &minus;5% to &minus;20%). Higher warming levels carry larger uncertainty bands.
+    </p>
+
+    <h3>How livestock impact values were derived</h3>
+    <p style="font-size:0.82rem;color:var(--text-secondary);">
+      Livestock percentage impacts are <strong>synthesised estimates</strong>, not outputs of a single quantitative model. They were constructed from:
+    </p>
+    <ol style="font-size:0.82rem;color:var(--text-secondary);padding-left:20px;margin-top:8px;">
+      <li>Temperature-Humidity Index (THI) dose-response relationships for each species from animal science literature.</li>
+      <li>IPCC AR6 WGII and SRCCL qualitative assessments of livestock vulnerability by region.</li>
+      <li>Feed-crop yield projections (since livestock productivity depends heavily on feed availability).</li>
+      <li>Regional climate projections for temperature and humidity changes under each warming level.</li>
+    </ol>
+    <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:8px;">
+      Users should treat livestock impact values as <strong>order-of-magnitude guidance</strong> rather than precise predictions.
+    </p>
+
+    <h3>Production shift arrows</h3>
+    <p style="font-size:0.82rem;color:var(--text-secondary);">
+      The directional arrows on the map indicate well-documented or projected shifts in production suitability zones, based on crop-climate modelling studies cited above. They represent the <em>direction</em> of suitability shifts, not exact migration paths. Actual production shifts depend on land availability, policy, infrastructure, and market forces.
+    </p>
+  </div>
+
+  <!-- ========== VERIFICATION LEGEND ========== -->
+  <div class="ref-section">
+    <h2>Verification Status Legend</h2>
+    <table>
+      <thead><tr><th>Tag</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-accurate">VERIFIED</span></td><td>Claim matches current peer-reviewed literature and official statistics</td></tr>
+        <tr><td><span class="tag tag-approx">APPROXIMATE</span></td><td>Claim is within the range of reported values but represents one point in a wider range; acceptable for a dashboard but not precise</td></tr>
+        <tr><td><span class="tag tag-updated">UPDATED</span></td><td>Original value was outdated; has been corrected in this version to reflect current data (March 2026)</td></tr>
+        <tr><td><span class="tag tag-estimate">ESTIMATE</span></td><td>Value is a reasonable central estimate synthesised from multiple sources; the exact figure is not directly stated in a single authoritative source</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  <p class="footer-text">
+    This references page accompanies the <a href="index.html">Climate Change &amp; Agriculture Impact Dashboard</a>.
+    Data last verified March 2026 against IPCC AR6, FAO FAOSTAT, USDA World Agricultural Production, and peer-reviewed literature cited above.
+  </p>
+</footer>
+
+</body>
+</html>

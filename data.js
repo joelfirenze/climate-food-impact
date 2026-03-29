@@ -28,14 +28,14 @@ APP_DATA.regions = {
     countries: ["CHN","JPN","KOR","PRK","MNG","TWN"],
     center: [35, 105], zoom: 4,
     currentClimate: "Temperate to continental; diverse growing zones",
-    population: "1.6 billion"
+    population: "1.55 billion"
   },
   sub_saharan_africa: {
     name: "Sub-Saharan Africa",
     countries: ["NGA","ETH","KEN","TZA","GHA","CIV","CMR","ZAF","MOZ","UGA","MWI","ZMB","ZWE","SEN","MLI","BFA","NER","TCD","COD","COG","AGO","NAM","BWA","MDG","RWA","BDI","SOM","SSD","GAB","GNQ","SLE","LBR","GIN","GMB","TGO","BEN","ERI","DJI","COM","MUS","SWZ","LSO"],
     center: [0, 25], zoom: 3,
     currentClimate: "Tropical to semi-arid; rain-fed agriculture dominates",
-    population: "1.2 billion"
+    population: "1.3 billion"
   },
   north_africa_mena: {
     name: "N. Africa & Middle East",
@@ -101,12 +101,12 @@ APP_DATA.crops = {
     name: "Wheat",
     icon: "\u{1F33E}",
     category: "crop",
-    description: "The world's most widely grown cereal, a staple for 2.5 billion people. Sensitive to high temperatures during grain filling.",
+    description: "The world's most widely grown cereal, a staple for nearly 3 billion people. Sensitive to high temperatures during grain filling.",
     optimalTemp: { min: 12, max: 25 },
     criticalMax: 32,
     criticalNote: "Grain filling stops above 32\u00B0C; each degree above optimal reduces yield ~6%",
     waterSensitivity: "moderate",
-    globalProduction: "780 million tonnes/year",
+    globalProduction: "~800 million tonnes/year",
     topProducers: ["CHN","IND","RUS","USA","FRA","CAN","UKR","PAK","DEU","ARG"],
     yieldChange: {
       south_asia:          [-4, -10, -20, -32, -45],
@@ -133,7 +133,7 @@ APP_DATA.crops = {
     criticalMax: 35,
     criticalNote: "Spikelet sterility above 35\u00B0C during flowering; nighttime temps above 26\u00B0C reduce grain quality",
     waterSensitivity: "very high",
-    globalProduction: "520 million tonnes/year",
+    globalProduction: "~540 million tonnes/year",
     topProducers: ["CHN","IND","IDN","BGD","VNM","THA","MMR","PHL","BRA","JPN"],
     yieldChange: {
       south_asia:          [-3, -8,  -17, -28, -40],
@@ -160,7 +160,7 @@ APP_DATA.crops = {
     criticalMax: 38,
     criticalNote: "Pollen viability drops sharply above 35\u00B0C; complete failure above 38\u00B0C during tasseling",
     waterSensitivity: "high",
-    globalProduction: "1,150 million tonnes/year",
+    globalProduction: "~1,200 million tonnes/year",
     topProducers: ["USA","CHN","BRA","ARG","UKR","IND","MEX","IDN","FRA","ZAF"],
     yieldChange: {
       south_asia:          [-3, -7,  -15, -25, -38],
@@ -187,7 +187,7 @@ APP_DATA.crops = {
     criticalMax: 36,
     criticalNote: "Pod abortion increases above 33\u00B0C; seed quality declines significantly above 36\u00B0C",
     waterSensitivity: "high",
-    globalProduction: "370 million tonnes/year",
+    globalProduction: "~400 million tonnes/year",
     topProducers: ["BRA","USA","ARG","CHN","IND","PRY","CAN","UKR","BOL","URY"],
     yieldChange: {
       south_asia:          [-2, -6,  -13, -22, -34],
@@ -214,7 +214,7 @@ APP_DATA.crops = {
     criticalMax: 29,
     criticalNote: "Tuber initiation stops above 29\u00B0C; every 1\u00B0C above 20\u00B0C reduces tuber yield by ~8%",
     waterSensitivity: "moderate",
-    globalProduction: "375 million tonnes/year",
+    globalProduction: "~390 million tonnes/year",
     topProducers: ["CHN","IND","UKR","RUS","USA","DEU","BGD","FRA","NLD","POL"],
     yieldChange: {
       south_asia:          [-5, -12, -22, -35, -48],
@@ -236,7 +236,7 @@ APP_DATA.crops = {
     name: "Coffee (Arabica)",
     icon: "\u{2615}",
     category: "crop",
-    description: "Arabica coffee, which accounts for 60% of global production, is exceptionally climate-sensitive. Requires specific narrow temperature and altitude ranges.",
+    description: "Arabica coffee, which accounts for ~57% of global production, is exceptionally climate-sensitive. Requires specific narrow temperature and altitude ranges.",
     optimalTemp: { min: 18, max: 22 },
     criticalMax: 25,
     criticalNote: "Above 23\u00B0C bean quality declines; above 25\u00B0C cherries ripen too fast for flavor development; above 30\u00B0C plants suffer severe stress",
@@ -268,7 +268,7 @@ APP_DATA.crops = {
     criticalMax: 32,
     criticalNote: "Above 30\u00B0C, pod development impaired; above 32\u00B0C with low humidity causes severe water stress and crop failure",
     waterSensitivity: "very high",
-    globalProduction: "5.7 million tonnes/year",
+    globalProduction: "~4.7 million tonnes/year (2024/25, post-crisis)",
     topProducers: ["CIV","GHA","IDN","ECU","CMR","NGA","BRA","PER","DOM","COL"],
     yieldChange: {
       south_asia:          [-4, -10, -20, -32, -46],
@@ -357,7 +357,7 @@ APP_DATA.livestock = {
     criticalTemp: 35,
     criticalNote: "Above 28\u00B0C: feed intake drops 5% per degree, egg production falls. Above 35\u00B0C: mass mortality events common in broiler houses. Each degree above 32\u00B0C reduces egg production ~7%.",
     globalProduction: "137 million tonnes/year",
-    topProducers: ["USA","CHN","BRA","RUS","IND","MEX","JPN","IDN","TUR","ARG"],
+    topProducers: ["USA","CHN","BRA","RUS","IND","MEX","THA","IDN","TUR","ARG"],
     impacts: {
       south_asia:          [-3, -8,  -16, -28, -42],
       southeast_asia:      [-3, -7,  -14, -24, -38],
@@ -382,7 +382,7 @@ APP_DATA.livestock = {
     thermoneutralZone: { min: 16, max: 22 },
     heatStressOnset: 25,
     criticalTemp: 33,
-    criticalNote: "Above 25\u00B0C: boar fertility drops 50%, sow conception rates fall. Above 33\u00B0C: feed intake drops 40%, severe stress and mortality. Pigs cannot sweat\u2014they are physiologically limited in heat dissipation.",
+    criticalNote: "Above 25\u00B0C: boar fertility can drop up to 50%, sow conception rates fall. Above 33\u00B0C: feed intake drops 30\u201340%, severe stress and mortality. Pigs cannot sweat\u2014they are physiologically limited in heat dissipation.",
     globalProduction: "120 million tonnes/year",
     topProducers: ["CHN","USA","DEU","ESP","BRA","RUS","VNM","CAN","POL","FRA"],
     impacts: {
@@ -410,7 +410,7 @@ APP_DATA.livestock = {
     heatStressOnset: 30,
     criticalTemp: 38,
     criticalNote: "Above 30\u00B0C: wool quality declines, milk production drops. Above 38\u00B0C: heat stress begins even in these hardy animals. Goats tolerate drought better than sheep.",
-    globalProduction: "16 million tonnes meat/year",
+    globalProduction: "~22 million tonnes meat/year (sheep + goat combined)",
     topProducers: ["CHN","AUS","IND","NGA","PAK","IRN","GBR","TUR","SDN","ETH"],
     impacts: {
       south_asia:          [-1, -4,  -9,  -16, -26],
@@ -502,7 +502,7 @@ APP_DATA.productionShifts = {
 // Global temperature scenarios and timelines (IPCC SSP pathways)
 // ---------------------------------------------------------------------------
 APP_DATA.scenarios = {
-  1: { label: "+1\u00B0C", yearRange: "2020\u20132040", ssp: "SSP1-2.6 (best case)", color: "#ffd93d" },
+  1: { label: "+1\u00B0C", yearRange: "~2017 (already exceeded)", ssp: "Current baseline", color: "#ffd93d" },
   2: { label: "+2\u00B0C", yearRange: "2040\u20132060", ssp: "SSP2-4.5 (moderate)", color: "#ff9f43" },
   3: { label: "+3\u00B0C", yearRange: "2060\u20132080", ssp: "SSP3-7.0 (high)", color: "#ee5a24" },
   4: { label: "+4\u00B0C", yearRange: "2080\u20132100", ssp: "SSP5-8.5 (very high)", color: "#e74c3c" },
